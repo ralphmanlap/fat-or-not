@@ -13,6 +13,10 @@
   var name, email, photoUrl, uid, emailVerified;
   var eating_array = [];
 
+  
+
+
+
   if (user != null) {
     name = user.displayName;
     email = user.email;
@@ -36,6 +40,10 @@
   });
 
   $(document).on("click","#signup", function() {
+    var password = $("#psw").val();
+    var email = $("#usrname").val();
+    console.log($("#usrname").val());
+    console.log($("#psw").val());
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -126,7 +134,7 @@
           position: center_coord,
           map: map,
           animation: google.maps.Animation.DROP,
-          icon: 'assets/images/ic_home_black_24dp_1x.png',
+          icon: '../assets/images/ic_home_black_24dp_1x.png',
           });
 
         });
@@ -136,7 +144,7 @@
   //depending on the restaurant button clicked,
   //will located and place markers on the 2 closest restaurant spots
   //to the entered location
-  $(document).on("click", "#food", function() {
+  $(document).on("click", ".food-button", function() {
       
       event.preventDefault();
 
@@ -146,9 +154,9 @@
         deleteMarker(1);
       }
 
-      console.log($(this).attr("value"));
+      console.log($(this).attr("id"));
 
-      var restaurant = $(this).attr("value");
+      var restaurant = $(this).attr("id");
 
       var queryURL = "https://dry-plateau-27231.herokuapp.com/?limit=2&term=" + restaurant + "&location=" + address;
 
@@ -183,7 +191,7 @@
             color: "white",
           },
           animation: google.maps.Animation.DROP,
-          icon: "assets/images/small_burger.png",
+          icon: "../assets/images/small_burger.png",
           map: map
           }); 
           markers[i] = marker;

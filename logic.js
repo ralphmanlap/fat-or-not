@@ -15,6 +15,9 @@ $("#healthy-choices-page").hide();
 $("#myBtn").click(function(){
 $("#myModal").modal();
 })
+$("#mySignUp").click(function(){
+$("#SignUpMod").modal();
+})
 })
 $("#FAT").on('click', function(event){
 event.preventDefault();

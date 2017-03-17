@@ -9,6 +9,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3zf6GJ2l6-twXq_OZJmC7TfvKwVcDR7c&libraries=places"></script> -->
+		<script src="assets/javascript/app.js"></script>
 	</head>
 	<style type="text/css">
 		#background{
@@ -126,10 +128,10 @@
 					<img id="fat-or-not" src="Everything/
 
 					images/Fat-or-not.png" class="img-responsive img-rounded">
-					<div class="locationInfo">
+					<!-- <div class="locationInfo">
 						<span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
-					</div>
-					<div id="map"></div>
+					</div> -->
+					<!-- <div id="map"></div> -->
 					<!-- <img id="findlocation" src="images/where-are-you.png" class="img-responsive img-rounded"/> -->
 					<form id="wheretogo">
 						<span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
@@ -178,6 +180,39 @@
 									<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 									<p>Not a member? <a href="#">Sign Up</a></p>
 									<p>Forgot <a href="#">Password?</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button type="button" class="btn btn-default btn-lg" id="mySignUp">Sign Up</button>
+					<!-- Modal -->
+					<div class="modal fade" id="SignUpMod" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header" style="padding:35px 50px;">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4><span class="glyphicon glyphicon-lock"></span> Sign Up</h4>
+								</div>
+								<div class="modal-body" style="padding:40px 50px;">
+									<form role="form">
+										<div class="form-group">
+											<label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+											<input type="text" class="form-control" id="usrname" placeholder="Enter email">
+										</div>
+										<div class="form-group">
+											<label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+											<input type="text" class="form-control" id="psw" placeholder="Enter password">
+										</div>
+										<div class="checkbox">
+											<label><input type="checkbox" value="" checked>Remember me</label>
+										</div>
+										<button type="submit" id="signup" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Sign Up</button>
+									</form>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 								</div>
 							</div>
 						</div>
