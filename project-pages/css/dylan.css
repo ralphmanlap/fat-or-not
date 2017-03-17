@@ -1,8 +1,9 @@
 body{
-	
+	background-color:black;
 	font-family: 'Indie Flower', cursive;
 	text-align: center;
 	font-weight: bold;
+	color:white;
 }
 
 #content { 
@@ -15,8 +16,8 @@ body{
   background: white; 
 } 
 
-#left  { float:left;  }
-#right { float:right; } 
+#left  { float:left; background-color:gray; }
+#right { float:right; background-color:gray; } 
 
 #display-food{
 

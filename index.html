@@ -1,93 +1,121 @@
 
-
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<meta charset="UTF-8">
 		<title>Fat or Not</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-		 <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-		 <script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-</head>
-
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	</head>
 	<style type="text/css">
 		#background{
 		background-color: black;
-/*
-		 url('Everything/images/Fat-or-not.png');
+		/*
+		url('Everything/images/Fat-or-not.png');
 		background-repeat: no-repeat;
 		background-position: center; */
 		/*background-size: cover;*/
 		/*height: 100vh;*/
 		}
 		.main-buttons {
-			margin-top:20vh;
+		margin-top:20vh;
 		}
 		.main-buttons:hover{
-			opacity: 0.5;
-			width: 70%;
-			height: 70%;
+		opacity: 0.5;
+		transform: scale(1.1);
 		}
-		h1{
-			font-size: 10vh;
-			font-family: 'Lobster', serif;
-			color: yellow;
-			text-align: center;
-			padding-bottom: 10px;
-		}
+		/*h1{
+		font-size: 10vh;
+		font-family: 'Lobster', serif;
+		color: yellow;
+		text-align: center;
+		padding-bottom: 10px;
+		}*/
 		#fat-or-not{
-			border: solid lightyellow 2px;
-			/*margin:20px 10px 0px 150px ;*/
-			/*margin: 100px;*/
-			text-align: center;
+		border: solid lightyellow 2px;
+		/*margin:20px 10px 0px 150px ;*/
+		/*margin: 100px;*/
+		text-align: center;
+		border-radius: 10px;
 		}
-
 		.slide-show{
-			/*width: 75vw;
-			height: 50vh;*/
-			border: solid lightyellow 2px;
-			/*margin: 0px 10px 0px 10px;*/
+		/*width: 75vw;
+		height: 50vh;*/
+		border: solid lightyellow 2px;
+		border-radius: 10px;
+		/*margin: 0px 10px 0px 10px;*/
 		}
-
 		#firstFat{
-			/*margin: 20px 10px 0px 150px;*/
+		/*margin: 20px 10px 0px 150px;*/
 		}
-
-		#secondPageload{
-			color: blue;
-			font-size: 30vh;
-			text-align: center;
-		}
-		
 		#dancingDog{
-			height: 90vh;
-			text-align: center;
-			margin: 0px auto;
+		height: 60vh;
+		text-align: center;
+		margin: 0px auto;
+		margin-top:10px;
 		}
 		#Happydance{
-			font-size:80px;
-			color: lightgreen;
-			text-align: center;
+		font-size:60px;
+		color: lightgreen;
+		text-align: center;
 		}
 		#mobile-image{
-			display: block;
+		display: block;
 		}
-
 		#mobile-header{
-			margin: 2vw auto;
-			border: solid lightyellow 2px;
+		margin: 2vw auto;
+		border: solid lightyellow 2px;
 		}
-
+		.modal-header, h4, .close {
+		background-color: #5cb85c;
+		color:white !important;
+		text-align: center;
+		font-size: 30px;
+		}
+		.modal-footer {
+		background-color: #f9f9f9;
+		}
+		.typewriter{
+		font-family: 'Lobster', serif;
+		padding-bottom: 10px;
+		color: yellow;
+		font-size: 15vh;
+		text-align: center;
+		overflow: hidden;
+		border-right: .15em solid black;
+		white-space: nowrap;
+		margin: 0 auto;
+		letter-spacing: .10em;
+		animation: 
+		typing 3.5s steps(40, end),
+		blink-caret .75s step-end infinite;
+		}
+		@keyframes typing {
+		from { width: 0 }
+		to { width: 80% }
+		}
+		/* The typewriter cursor effect */
+		@keyframes blink-caret {
+		from, to { border-color: transparent }
+		50% { border-color: black; }
+		}
+		#secondPageload, pageTitle{
+		font-family: 'Lobster', serif;	
+		}
+		.locationInfo{color:white; font-size:20px;}
+		.dylanslink{ margin: 2vw auto; }
+		
 	</style>
 	<body id="background">
 		<div class="container">
-		<div class="row">
-		<!-- 	<div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-offset-8 col-sm-offset-8 col-xs-8"> -->
-				<h1 id="pageTitle"><strong>Choose your fate</strong></h1>
-				<img id="mobile-header" src="Everything/images/mobile-friendly-header.png" class="visible-xs-block img-responsive">
+			<!-- Trigger the modal with a button -->
+			<div class="row">
+				<!-- 	<div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-offset-8 col-sm-offset-8 col-xs-8"> -->
+				<h1 class="typewriter" id="pageTitle"><strong>Choose your fate</strong></h1>
+				<img id="mobile-header" src="Everything/images/mobile-friendly-header.png" class="visible-xs-block img-responsive img-rounded">
 				<div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
 					<img class="slide-show img-responsive" id="fatslide">
 					<div id="fatGifs" class="main-buttons">
@@ -95,40 +123,98 @@
 					</div>
 				</div>
 				<div class="hidden-xs col-sm-offset-2 col-sm-4 col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4">
-				<img id="fat-or-not" src="Everything/images/Fat-or-not.png" class="img-responsive">
+					<img id="fat-or-not" src="Everything/
+
+					images/Fat-or-not.png" class="img-responsive img-rounded">
+					<div class="locationInfo">
+						<span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
+					</div>
+					<div id="map"></div>
+					<!-- <img id="findlocation" src="images/where-are-you.png" class="img-responsive img-rounded"/> -->
+					<form id="wheretogo">
+						<span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
+					</form>
 				</div>
 				<div class="col-xs-6 col-sm-offset-2 col-sm-2 col-md-offset-2 col-md-2 col-lg-offset-2 col-lg-2">
-				<!-- <div class="row main-buttons"> -->
-				<div class="slide-show" id="skinnySlideShow">slide show</div>
-					<div id="garfield-message"></div>
+					<!-- <div class="row main-buttons"> -->
+					<div class="slide-show" id="skinnySlideShow">slide show</div>
+					
 					<div id="skinnyGifs" class="main-buttons">
 						<input type="image" src="Everything/images/popeye-healthy.png" name="saveForm" class="btTxt submit img-responsive" id="SKINNY" />
 					</div>
 				</div>
-			</div>
-			</div>
+			
 		</div>
-		<h1 id="secondPageload">Are you sure?</h1>
-		<div class="container">
+		
 		<div class="row">
-			<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-4 col-lg-8">
-		<img id="firstFat" src="https://68.media.tumblr.com/17bdec4d770449147486f7ff6225539c/tumblr_nl2jw7d0oY1qbxi45o1_500.gif"class="img-responsive">
-		<div class="locationInfo">
-			 <span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
+		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-5 col-lg-7">
+					<button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header" style="padding:35px 50px;">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+								</div>
+								<div class="modal-body" style="padding:40px 50px;">
+									<form role="form">
+										<div class="form-group">
+											<label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+											<input type="text" class="form-control" id="usrname" placeholder="Enter email">
+										</div>
+										<div class="form-group">
+											<label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+											<input type="text" class="form-control" id="psw" placeholder="Enter password">
+										</div>
+										<div class="checkbox">
+											<label><input type="checkbox" value="" checked>Remember me</label>
+										</div>
+										<button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+									</form>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+									<p>Not a member? <a href="#">Sign Up</a></p>
+									<p>Forgot <a href="#">Password?</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+		 </div>
+		<div class="typewriter" id="secondPageload">Are you sure?</div>
+		<div class="row">
+		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-5 col-lg-7">
+		<a class="options" href="project-pages/unhealthy.html">Yes, I'm willing to risk it</a><br><br>
+		<a class = "options" href="project-pages/healthy.html">No, I changed my mind</a>
 		</div>
-	</div>
-		<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-		<h1 id="Happydance">Happy Dance Time!</h1>
 		</div>
-		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
-		<img id="dancingDog" src="http://media4.giphy.com/media/vF25I06jdODgA/giphy.gif" class="img-responsive">
-		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-	</div>
-	</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-4 col-lg-8">
+					<img id="firstFat" src="https://68.media.tumblr.com/17bdec4d770449147486f7ff6225539c/tumblr_nl2jw7d0oY1qbxi45o1_500.gif"class="img-responsive img-rounded">
+					<!-- added from Ralphs file -->
+					<!-- end -->
+				</div>
+				<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+					<h1 id="Happydance" class="typewriter">Happy Dance Time!</h1>
+				</div>
+				<div class="row">
+		            <div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-5 col-lg-7">
+					<a id="healthy-choices-page" href="project-pages/healthy.html">Healthy Choices</a>
+					</div>
+					</div>
+				<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+					<img id="dancingDog" src="http://media4.giphy.com/media/vF25I06jdODgA/giphy.gif" class="img-responsive img-rounded">
+					
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-		 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
 		<script type="text/javascript" src = "logic.js"></script>
 	</body>
 </html>
-
