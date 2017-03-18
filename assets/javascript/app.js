@@ -13,6 +13,7 @@
   var name, email, photoUrl, uid, emailVerified;
   var eating_array = [];
 
+  var addresses = [];
   
 
 
@@ -76,9 +77,6 @@
 });
 
 
-
-
-
   //create variable that will hold the address, geocoding URL, and map.
   var geoURL;
   var map;
@@ -88,6 +86,7 @@
   var markers = [];
   var labels = 'AB';
   var labelIndex = 0;
+  var ab = ["A","B"];
 
   //function to delete markers
   function deleteMarker(markerIndex){
@@ -162,6 +161,12 @@
 
       console.log(queryURL);
 
+      
+
+      var address_div = $("#closest").html();
+      address_div = $("#closest").html("<div>");
+      address_div.append("<h1>Closest Locations:</h1>");
+
       //ajax request 
       $.ajax({
           url: queryURL,
@@ -172,6 +177,7 @@
 
         //for loop for limit of two closest restaurant locations
         for (var i=0; i < 2; i++) {
+          
 
           //taking restaurant latitude and longitude and assigning to variables
           restaurant_lat = response_obj.businesses[i].coordinates.latitude;
@@ -181,6 +187,7 @@
           console.log("longitude " + restaurant_long);
           console.log("Address " + response_obj.businesses[i].location.address1 + " " + response_obj.businesses[0].location.city);
 
+          addresses[i] = response_obj.businesses[i].location.address1 + " " + response_obj.businesses[0].location.city;
           var coordinates = new google.maps.LatLng(restaurant_lat, restaurant_long);
 
           //create marker for restaurant[i]
@@ -199,6 +206,8 @@
           // $("#location1").html(Address);
 
           console.log(marker);
+          address_div.append("<h2>" + ab[i] + ": </h2>");
+          address_div.append("<h4>" + addresses[i] + "</h4>");
         }      
 
       });

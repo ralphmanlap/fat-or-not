@@ -4,10 +4,29 @@
 	<title>UN-Healthy Page</title>
 <link rel="stylesheet" type="text/css" href="css/dylan.css">
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3zf6GJ2l6-twXq_OZJmC7TfvKwVcDR7c&libraries=places"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+<script src="../assets/javascript/app.js"></script>
+<style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+       #location-input{
+        color: black;
+       }
+    </style>
 </head>
 <body>
 
 <div id="content">
+<div>
+    <form>
+      <span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
+    </form>
+<div id="map"></div>
+</div>
     <div id="left">
         <h1><button id="menu-head" type="submit">Fast Food Chains</button></h1>
             <div id="fast-food">
@@ -33,9 +52,7 @@
 
 
 
-
-
-
+<div id="closest"></div>
 <div id="display-food">
         <p id="image-1"></p>
     	<p id="food-item"></p>
