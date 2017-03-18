@@ -33,6 +33,7 @@ $("#firstFat").show();
 $("#pageTitle").hide();
 $("#secondPageload").show();
 $("#myBtn").hide();
+$("#mySignUp").hide();
 $(".options").show();
 $("#todo-item").show();
 
